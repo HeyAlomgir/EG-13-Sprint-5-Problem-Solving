@@ -230,6 +230,37 @@ const productExceptSelf = function (nums) {
 
 
 
+// 07. Rotate Array
+
+const rotate = function (nums, k) {
+    const n = nums.length;
+
+    k = k % n;
+
+    const rotated = nums.slice(n - k);
+
+    for (let i = 0; i < n - k; i++) {
+        rotated.push(nums[i]);
+    }
+
+    for (let i = 0; i < n; i++) {
+        nums[i] = rotated[i];
+    }
+};
+
+
+// Test
+const nums07 = [1, 2, 3, 4, 5, 6, 7];
+rotate(nums07, 3);
+
+console.log("07. Rotate Array:", nums07);
+
+
+
+
+
+
+
 
 
 
