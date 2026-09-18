@@ -355,6 +355,41 @@ const checkSubarraySum = function (nums, k) {
 
 
 
+// 10. Daily Temperatures
+
+const dailyTemperatures = function (temperatures) {
+    const result = new Array(temperatures.length).fill(0);
+
+    const stack = [];
+
+    for (let i = 0; i < temperatures.length; i++) {
+        while (
+            stack.length > 0 &&
+            temperatures[i] > temperatures[stack[stack.length - 1]]
+        ) {
+            const previousIndex = stack.pop();
+
+            result[previousIndex] = i - previousIndex;
+        }
+
+        stack.push(i);
+    }
+
+    return result;
+};
+
+
+// Test
+// console.log(
+//     "10. Daily Temperatures:",
+//     dailyTemperatures([73, 74, 75, 71, 69, 72, 76, 73])
+// );
+
+
+
+
+
+
 
 
 
