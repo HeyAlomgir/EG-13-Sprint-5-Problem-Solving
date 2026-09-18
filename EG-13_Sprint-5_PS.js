@@ -250,10 +250,73 @@ const rotate = function (nums, k) {
 
 
 // Test
-const nums07 = [1, 2, 3, 4, 5, 6, 7];
-rotate(nums07, 3);
+// const nums07 = [1, 2, 3, 4, 5, 6, 7];
+// rotate(nums07, 3);
 
-console.log("07. Rotate Array:", nums07);
+// console.log("07. Rotate Array:", nums07);
+
+
+
+
+
+
+
+
+
+// 08. Min Stack
+
+const MinStack = function () {
+    this.stack = [];
+    this.minStack = [];
+};
+
+
+MinStack.prototype.push = function (val) {
+    this.stack.push(val);
+
+    if (
+        this.minStack.length === 0 ||
+        val <= this.minStack[this.minStack.length - 1]
+    ) {
+        this.minStack.push(val);
+    }
+};
+
+
+MinStack.prototype.pop = function () {
+    const removed = this.stack.pop();
+
+    if (removed === this.minStack[this.minStack.length - 1]) {
+        this.minStack.pop();
+    }
+};
+
+
+MinStack.prototype.top = function () {
+    return this.stack[this.stack.length - 1];
+};
+
+
+MinStack.prototype.getMin = function () {
+    return this.minStack[this.minStack.length - 1];
+};
+
+
+// Test
+// const minStack08 = new MinStack();
+
+// minStack08.push(-2);
+// minStack08.push(0);
+// minStack08.push(-3);
+
+// console.log("08. Get Min:", minStack08.getMin());
+
+// minStack08.pop();
+
+// console.log("08. Get Min:", minStack08.getMin());
+
+
+
 
 
 
