@@ -320,6 +320,47 @@ MinStack.prototype.getMin = function () {
 
 
 
+// 09. Continuous Subarray Sum
+
+const checkSubarraySum = function (nums, k) {
+    const remainderMap = new Map();
+
+    remainderMap.set(0, -1);
+
+    let sum = 0;
+
+    for (let i = 0; i < nums.length; i++) {
+        sum += nums[i];
+
+        const remainder = sum % k;
+
+        if (remainderMap.has(remainder)) {
+            if (i - remainderMap.get(remainder) >= 2) {
+                return true;
+            }
+        } else {
+            remainderMap.set(remainder, i);
+        }
+    }
+
+    return false;
+};
+
+
+// Test
+// console.log(
+//     "09. Continuous Subarray Sum:",
+//     checkSubarraySum([23, 2, 4, 6, 7], 6)
+// );
+
+
+
+
+
+
+
+
+
 
 
 
