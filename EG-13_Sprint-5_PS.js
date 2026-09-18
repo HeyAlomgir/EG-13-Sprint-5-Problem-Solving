@@ -142,6 +142,65 @@ const maxDepth = function (root) {
 
 
 
+// 05. Invert Binary Tree
+
+const invertTree = function (root) {
+    if (root === null) {
+        return null;
+    }
+
+    const temp = root.left;
+    root.left = root.right;
+    root.right = temp;
+
+    invertTree(root.left);
+    invertTree(root.right);
+
+    return root;
+};
+
+
+
+
+// Test
+
+// const root05 = {
+//     val: 4,
+//     left: {
+//         val: 2,
+//         left: { val: 1, left: null, right: null },
+//         right: { val: 3, left: null, right: null }
+//     },
+//     right: {
+//         val: 7,
+//         left: { val: 6, left: null, right: null },
+//         right: { val: 9, left: null, right: null }
+//     }
+// };
+
+// const inverted05 = invertTree(root05);
+
+// const output05 = [
+//     inverted05.val,
+//     inverted05.left.val,
+//     inverted05.right.val,
+//     inverted05.left.left.val,
+//     inverted05.left.right.val,
+//     inverted05.right.left.val,
+//     inverted05.right.right.val
+// ];
+
+// console.log("05. Invert Binary Tree:", output05);
+
+
+
+
+
+
+
+
+
+
 
 
 
