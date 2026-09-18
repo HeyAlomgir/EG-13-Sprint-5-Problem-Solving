@@ -96,6 +96,53 @@ const searchInsert = function (nums, target) {
 
 
 
+// 04. Maximum Depth of Binary Tree
+
+const maxDepth = function (root) {
+    if (root === null) {
+        return 0;
+    }
+
+    const leftDepth = maxDepth(root.left);
+    const rightDepth = maxDepth(root.right);
+
+    return Math.max(leftDepth, rightDepth) + 1;
+};
+
+// Test
+
+// const root04 = {
+//     val: 3,
+//     left: {
+//         val: 9,
+//         left: null,
+//         right: null
+//     },
+//     right: {
+//         val: 20,
+//         left: {
+//             val: 15,
+//             left: null,
+//             right: null
+//         },
+//         right: {
+//             val: 7,
+//             left: null,
+//             right: null
+//         }
+//     }
+// };
+
+// console.log("04. Maximum Depth of Binary Tree:", maxDepth(root04));
+
+
+
+
+
+
+
+
+
 
 
 
